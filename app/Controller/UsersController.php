@@ -52,18 +52,6 @@ class UsersController extends AppController {
 			}
 		}
 
-		/*if($this->action == "delete")
-		{
-			if(isset($user['group_id']) &&^$user['group_id'] > 0)
-			{
-				return true;
-			}
-
-			else
-			{
-				return false;
-			}
-		}*/
 
 		return parent::isAuthorized($user);
 	}
