@@ -29,6 +29,45 @@ class UsersController extends AppController {
 		$this->Auth->allow('add');
 	}
 
+	public function isAuthorized($user)
+	{
+		if($this->action == "delete")
+		{
+			return false;
+		}
+
+		if($this->action == "edit")
+		{
+			//user/edit/6, id is 6
+			$id = $this->request->params['pass'][0];
+			if(isset($user['id']) && $user['id'] == $id)
+			{
+				return true;
+			}
+
+			else
+			{
+				$this->Session->setFlash('Petit hackeur de merde');
+				return false;
+			}
+		}
+
+		/*if($this->action == "delete")
+		{
+			if(isset($user['group_id']) &&^$user['group_id'] > 0)
+			{
+				return true;
+			}
+
+			else
+			{
+				return false;
+			}
+		}*/
+
+		return parent::isAuthorized($user);
+	}
+
 
 /**
  * index method
