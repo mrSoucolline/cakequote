@@ -37,7 +37,11 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link('cakequote', '/'); ?></h1>
+			<h1>
+				<?php echo $this->Html->link('cakequote', '/'); ?>
+				<?php echo $this->Html->link('login', '/users/login' ); ?>
+				<?php echo $this->Html->link('logout', '/users/logout'); ?>
+			</h1>
 		</div>
 		<div id="content">
 			<?php debug($me); ?>
